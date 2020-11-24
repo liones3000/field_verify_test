@@ -1,17 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="container">
+      <h1>Card validate</h1>
+      <Form :valid-card="validCard" @notifyMsg="notifyHandler" />
+      <Notify :notify="notifyMsg" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Form from "./components/form";
+import Notify from "./components/notify";
 
 export default {
   name: "App",
   components: {
-    HelloWorld
+    Form,
+    Notify
+  },
+  data: () => ({
+    notifyMsg: null,
+    validCard: {
+      card_number: "2020-2020-2020-2020",
+      exp_date: "12-20",
+      card_cvv: "202"
+    }
+  }),
+  methods: {
+    notifyHandler(type) {
+      this.notifyMsg = type;
+    }
   }
 };
 </script>
@@ -23,6 +41,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 30px;
+  .container {
+    max-width: 700px;
+  }
 }
 </style>
