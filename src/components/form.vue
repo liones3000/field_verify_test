@@ -20,7 +20,7 @@
             >
             </BFormInput>
             <BFormInvalidFeedback :state="validationCardNumber"
-              >Your must input 12 numbers like example.</BFormInvalidFeedback
+              >Your must input 16 numbers like example.</BFormInvalidFeedback
             >
             <BFormValidFeedback :state="validationCardNumber"
               >Looks Good.</BFormValidFeedback
